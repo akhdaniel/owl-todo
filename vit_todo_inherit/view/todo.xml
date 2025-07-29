@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- tree view -->
+        <!--record id="view_todo_tree" model="ir.ui.view">
+            <field name="name">todo_tree</field>
+            <field name="model">vit.todo</field>
+            <field name="inherit_id" ref="vit_todo.view_vit_todo_tree"/>
+            <field name="arch" type="xml">
+            </field>
+        </record-->
+        <!-- form view -->
+        <!-- record id="view_todo_form" model="ir.ui.view">
+            <field name="name">todo_form</field>
+            <field name="model">vit.todo</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="vit_todo.view_vit_todo_form"/>
+            <field name="arch" type="xml">
+            </field>
+        </record-->
+        <!-- search -->
+        <!--record id="view_todo_search" model="ir.ui.view">
+            <field name="name">todo</field>
+            <field name="model">vit.todo</field>
+            <field name="inherit_id" ref="vit_todo.view_vit_todo_search"/>
+            <field name="arch" type="xml">
+            </field>
+        </record-->
+        <!-- action window -->
+        <!--record id="vit_todo.action_todo" model="ir.actions.act_window">
+            <field name="name">Todo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vit.todo</field>
+            <field name="view_mode">list,form,kanban,pivot</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add a new Todo
+                </p><p>
+
+                </p>
+            </field>
+        </record-->
+
+        <menuitem id="menu_todo" name="Todo" parent="vit_todo_config_menu" action="action_todo" sequence="20"/>
+    </data>
+</odoo>
