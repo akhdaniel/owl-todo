@@ -1,0 +1,6 @@
+# Ignore Python bytecode
+*.pyc
+__pycache__/
+
+# macOS Finder files
+.DS_Store
