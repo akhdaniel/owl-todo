@@ -19,10 +19,17 @@
 	"summary": "",
 	"description": "",
 	"data": [
-		#"view/todo.xml"
+		"view/todo.xml"
 	],
 	"installable": True,
 	"auto_install": False,
-	"application": True,
-	"odooVersion": 18
+	# "application": True,
+	# "odooVersion": 18,
+    'assets': {
+        'web.assets_backend':[
+            'vit_todo_inherit/static/src/js/components/todo/*.js',
+            'vit_todo_inherit/static/src/js/components/todo/*.xml',
+            # 'vit_todo_inherit/static/src/js/components/*/*.scss',
+        ]
+    }    
 }

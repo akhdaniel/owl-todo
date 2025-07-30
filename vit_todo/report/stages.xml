@@ -2,44 +2,44 @@
 <odoo>
     <data>
         <!-- report qweb view -->
-        <record id="action_report_vit_todo" model="ir.actions.report">
-            <field name="name">Todo</field>
-            <field name="model">vit.todo</field>
+        <record id="action_report_vit_stages" model="ir.actions.report">
+            <field name="name">Stages</field>
+            <field name="model">vit.stages</field>
             <field name="report_type">qweb-pdf</field>
-            <field name="report_name">vit_todo.vit_todo_report</field>
-            <field name="report_file">vit_todo.vit_todo_report</field>
+            <field name="report_name">vit_todo.vit_stages_report</field>
+            <field name="report_file">vit_todo.vit_stages_report</field>
             <field name="print_report_name">object.name</field>
-            <field name="binding_model_id" ref="vit_todo.model_vit_todo"/>
+            <field name="binding_model_id" ref="vit_todo.model_vit_stages"/>
             <field name="binding_type">report</field>
         </record>
         <!-- document template -->
-        <template id="vit_todo.vit_todo_report_document" >
+        <template id="vit_todo.vit_stages_report_document" >
             <t t-call="web.external_layout">
                 <t t-set="doc" t-value="doc.with_context({'lang': lang})"/>
                 <div class="page">
                     <h2>
-                        Todo: <span t-field="doc.name"/>
+                        Stages: <span t-field="doc.name"/>
                     </h2>
                     <div class="row mt32 mb32">
                         <div class="col-auto mw-100 mb-2">
-                            <strong>Description</strong>
-                            <p class="m-0" t-field="doc.description" />
+                            <strong>Sequence</strong>
+                            <p class="m-0" t-field="doc.sequence" />
                         </div>
                         <div class="col-auto mw-100 mb-2">
-                            <strong>Color</strong>
-                            <p class="m-0" t-field="doc.color" />
+                            <strong>Draft</strong>
+                            <p class="m-0" t-field="doc.draft" />
                         </div>
                         <div class="col-auto mw-100 mb-2">
-                            <strong>Is Completed</strong>
-                            <p class="m-0" t-field="doc.is_completed" />
+                            <strong>Done</strong>
+                            <p class="m-0" t-field="doc.done" />
                         </div>
                         <div class="col-auto mw-100 mb-2">
-                            <strong>Stage Is Draft</strong>
-                            <p class="m-0" t-field="doc.stage_is_draft" />
+                            <strong>Open</strong>
+                            <p class="m-0" t-field="doc.open" />
                         </div>
                         <div class="col-auto mw-100 mb-2">
-                            <strong>Stage Is Done</strong>
-                            <p class="m-0" t-field="doc.stage_is_done" />
+                            <strong>Fold</strong>
+                            <p class="m-0" t-field="doc.fold" />
                         </div>
                         <div class="col-auto mw-100 mb-2">
                             <strong>Allow Confirm</strong>
@@ -50,12 +50,12 @@
                             <p class="m-0" t-field="doc.allow_cancel" />
                         </div>
                         <div class="col-auto mw-100 mb-2">
-                            <strong>Stage Name</strong>
-                            <p class="m-0" t-field="doc.stage_name" />
+                            <strong>Execute Enter</strong>
+                            <p class="m-0" t-field="doc.execute_enter" />
                         </div>
                         <div class="col-auto mw-100 mb-2">
-                            <strong>Stage</strong>
-                            <p class="m-0" t-field="doc.stage_id"/>
+                            <strong>Confirmation</strong>
+                            <p class="m-0" t-field="doc.confirmation" />
                         </div>
                     </div>
                 </div>
@@ -64,11 +64,11 @@
         </template>
 
         <!-- main template -->
-        <template id="vit_todo.vit_todo_report">
+        <template id="vit_todo.vit_stages_report">
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="doc">
                     <t t-set="lang" t-value="doc.create_uid.lang"/>
-                    <t t-call="vit_todo.vit_todo_report_document" />
+                    <t t-call="vit_todo.vit_stages_report_document" />
                 </t>
             </t>
         </template>

@@ -41,6 +41,17 @@
             </field>
         </record-->
 
-        <menuitem id="menu_todo" name="Todo" parent="vit_todo_config_menu" action="action_todo" sequence="20"/>
+        <!-- <menuitem id="menu_todo" name="Todo" parent="vit_todo_config_menu" action="action_todo" sequence="20"/> -->
+
+
+        <record id="action_todo_list" model="ir.actions.client">
+            <field name="name">Todo List OWL</field>
+            <field name="tag">vit_todo_inherit.action_todo_js</field>
+        </record>
+
+        <menuitem name="To Do List OWL" id="menu_todo_list" 
+            parent="vit_todo.vit_todo_config_menu"
+            action="action_todo_list"/>
+                        
     </data>
 </odoo>

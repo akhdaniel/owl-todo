@@ -22,7 +22,10 @@
 		"security/ir.model.access.csv",
 		"view/menu.xml",
 		"view/todo.xml",
-		"report/todo.xml"
+		"report/todo.xml",
+		"data/sequence_todo.xml",
+		"view/stages.xml",
+		"report/stages.xml"
 	],
 	"installable": True,
 	"auto_install": False,
