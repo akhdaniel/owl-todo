@@ -24,5 +24,11 @@
 	"installable": True,
 	"auto_install": False,
 	"application": True,
-	"odooVersion": 18
+	"odooVersion": 18,
+	"assets": {
+        'web.assets_backend':[
+            "vit_todo_inherit/static/src/js/components/*.js",
+            "vit_todo_inherit/static/src/js/components/*.xml",
+		]
+	}
 }
