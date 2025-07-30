@@ -13,67 +13,11 @@ class todo(models.Model):
     def action_reload_view(self):
         pass
 
-    name = fields.Char( required=True, copy=False, default="New", readonly=True,  string=_("Name"))
+    name = fields.Char( required=True, copy=False, string=_("Name"))
     description = fields.Text( string=_("Description"))
     color = fields.Char( string=_("Color"))
     is_completed = fields.Boolean( string=_("Is Completed"))
-    stage_is_draft = fields.Boolean(related="stage_id.draft", store=True,  string=_("Stage Is Draft"))
-    stage_is_done = fields.Boolean(related="stage_id.done", store=True,  string=_("Stage Is Done"))
-    allow_confirm = fields.Boolean(related="stage_id.allow_confirm", store=True,  string=_("Allow Confirm"))
-    allow_cancel = fields.Boolean(related="stage_id.allow_cancel", store=True,  string=_("Allow Cancel"))
-    stage_name = fields.Char(related="stage_id.name", store=True,  string=_("Stage Name"))
 
-
-    @api.model_create_multi
-    def create(self, vals):
-        for val in vals:
-            if not val.get("name", False) or val["name"] == "New":
-                val["name"] = self.env["ir.sequence"].next_by_code("vit.todo") or "Error Number!!!"
-        return super(todo, self).create(vals)
-
-    def _get_first_stage(self):
-        try:
-            data_id = self.env["vit.stages"].sudo().search([], limit=1, order="sequence asc")
-            if data_id:
-                return data_id
-        except KeyError:
-            return False
-
-    def action_confirm(self):
-        stage = self._get_next_stage()
-        self.stage_id=stage
-        if self.stage_id.execute_enter and hasattr(self, self.stage_id.execute_enter) and callable(getattr(self, self.stage_id.execute_enter)):
-            eval(f"self.{self.stage_id.execute_enter}()")
-
-    def action_cancel(self):
-        stage = self._get_previous_stage()
-        self.stage_id=stage
-
-    def _get_next_stage(self):
-        current_stage_seq = self.stage_id.sequence
-        data_id = self.env["vit.stages"].sudo().search([("sequence",">",current_stage_seq)], limit=1, order="sequence asc")
-        if data_id:
-            return data_id
-        else:
-            return self.stage_id
-
-    def _get_previous_stage(self):
-        current_stage_seq = self.stage_id.sequence
-        data_id = self.env["vit.stages"].sudo().search([("sequence","<",current_stage_seq)], limit=1, order="sequence desc")
-        if data_id:
-            return data_id
-        else:
-            return self.stage_id
-
-    @api.model
-    def _group_expand_states(self, stages, domain, order):
-        return self.env['vit.stages'].search([])
-
-    def unlink(self):
-        for me_id in self :
-            if not me_id.stage_id.draft:
-                raise UserError("Cannot delete non draft record!  Make sure that the Stage draft flag is checked.")
-        return super(todo, self).unlink()
 
     def copy(self, default=None):
         default = dict(default or {})
@@ -82,4 +26,3 @@ class todo(models.Model):
         })
         return super(todo, self).copy(default)
 
-    stage_id = fields.Many2one(comodel_name="vit.stages",  default=_get_first_stage, copy=False, group_expand="_group_expand_states",  string=_("Stage"))

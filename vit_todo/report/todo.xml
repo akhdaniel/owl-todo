@@ -33,30 +33,6 @@
                             <strong>Is Completed</strong>
                             <p class="m-0" t-field="doc.is_completed" />
                         </div>
-                        <div class="col-auto mw-100 mb-2">
-                            <strong>Stage Is Draft</strong>
-                            <p class="m-0" t-field="doc.stage_is_draft" />
-                        </div>
-                        <div class="col-auto mw-100 mb-2">
-                            <strong>Stage Is Done</strong>
-                            <p class="m-0" t-field="doc.stage_is_done" />
-                        </div>
-                        <div class="col-auto mw-100 mb-2">
-                            <strong>Allow Confirm</strong>
-                            <p class="m-0" t-field="doc.allow_confirm" />
-                        </div>
-                        <div class="col-auto mw-100 mb-2">
-                            <strong>Allow Cancel</strong>
-                            <p class="m-0" t-field="doc.allow_cancel" />
-                        </div>
-                        <div class="col-auto mw-100 mb-2">
-                            <strong>Stage Name</strong>
-                            <p class="m-0" t-field="doc.stage_name" />
-                        </div>
-                        <div class="col-auto mw-100 mb-2">
-                            <strong>Stage</strong>
-                            <p class="m-0" t-field="doc.stage_id"/>
-                        </div>
                     </div>
                 </div>
                 <div class="oe_structure"/>

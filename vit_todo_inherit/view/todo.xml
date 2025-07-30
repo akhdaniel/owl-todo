@@ -50,7 +50,7 @@
         </record>
 
         <menuitem name="To Do List OWL" id="menu_todo_list" 
-            parent="vit_todo.vit_todo_config_menu"
+            parent="vit_todo.vit_todo_sub_menu"
             action="action_todo_list"/>
                         
     </data>

@@ -2,6 +2,3 @@
 access_user_vit_todo,access_user_vit_todo,model_vit_todo,vit_todo.group_owl_todo_user,1,0,0,0
 access_manager_vit_todo,access_manager_vit_todo,model_vit_todo,vit_todo.group_owl_todo_manager,1,1,1,1
 access_admin_vit_todo,access_admin_vit_todo,model_vit_todo,base.group_system,1,1,1,1
-access_user_vit_stages,access_user_vit_stages,model_vit_stages,vit_todo.group_owl_todo_user,1,0,0,0
-access_manager_vit_stages,access_manager_vit_stages,model_vit_stages,vit_todo.group_owl_todo_manager,1,1,1,1
-access_admin_vit_stages,access_admin_vit_stages,model_vit_stages,base.group_system,1,1,1,1
