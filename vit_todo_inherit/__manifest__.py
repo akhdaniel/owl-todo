@@ -19,11 +19,11 @@
 	"summary": "",
 	"description": "",
 	"data": [
-		#"view/todo.xml"
+		"view/todo.xml"
 	],
 	"installable": True,
 	"auto_install": False,
-	"application": True,
+	# "application": True,
 	"odooVersion": 18,
 	"assets": {
         'web.assets_backend':[

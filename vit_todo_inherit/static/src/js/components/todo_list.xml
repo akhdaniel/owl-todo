@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="vit_todo_inherit.todo_template" owl="1">
+
+        <div class="todo-list container">
+        
+            Daftar todo disini ...
+
+            
+        </div>
+    </t>
+
+</templates>
